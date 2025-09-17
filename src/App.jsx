@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
-import { ThemeProvider } from "./contexts/ThemeContext";
+import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 import { AuthProvider } from "./contexts/AuthContext";
 import { CrisisProvider } from "./contexts/CrisisContext";
 import { NavigationProvider } from "./contexts/NavigationContext";

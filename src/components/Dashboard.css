@@ -343,3 +343,30 @@
   outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
+
+.counselor-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.counselor-card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.counselor-card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.phone-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.phone-link:hover {
+  text-decoration: underline;
+}

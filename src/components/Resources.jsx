@@ -214,7 +214,6 @@ const Resources = () => {
     },
   ];
 
-  // 🔹 Video Modal
   const playVideo = (video) => setSelectedVideo(video);
   const closeVideo = () => setSelectedVideo(null);
 

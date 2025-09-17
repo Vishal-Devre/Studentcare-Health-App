@@ -32,51 +32,64 @@ const Login = ({ onLogin }) => {
     setError('');
     
     try {
+      // Bypass actual authentication - always login successfully
+      const userData = {
+        email: formData.email || 'demo@student.edu',
+        name: formData.name || 'Demo User',
+        studentId: formData.studentId || 'STU12345'
+      };
+      
+      // Store user data in localStorage
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      // Update auth context
       if (isLogin) {
-        await login(formData.email, formData.password);
-        // Call onLogin callback if provided
-        if (onLogin && typeof onLogin === 'function') {
-          onLogin();
-        }
+        await login(userData.email, formData.password);
       } else {
-        await signup(formData);
-        // Call onLogin callback if provided
-        if (onLogin && typeof onLogin === 'function') {
-          onLogin();
-        }
+        await signup(userData);
+      }
+      
+      // Call onLogin callback if provided
+      if (onLogin && typeof onLogin === 'function') {
+        onLogin();
       }
     } catch (error) {
-      setError(error.message);
+      console.error('Login error:', error);
+      // This should never happen now, but just in case
+      setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleDemoLogin = async () => {
-    setFormData({
-      email: 'demo@student.edu',
-      password: 'password123',
-      name: '',
-      studentId: ''
-    });
+    setIsLoading(true);
+    setError('');
     
-    // Wait a moment for the state to update, then submit
-    setTimeout(async () => {
-      setIsLoading(true);
-      setError('');
+    try {
+      // Bypass authentication for demo login
+      const userData = {
+        email: 'demo@student.edu',
+        name: 'Demo User',
+        studentId: 'STU12345'
+      };
       
-      try {
-        await login('demo@student.edu', 'password123');
-        // Call onLogin callback if provided
-        if (onLogin && typeof onLogin === 'function') {
-          onLogin();
-        }
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
+      // Store user data in localStorage
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      // Update auth context
+      await login(userData.email, 'password123');
+      
+      // Call onLogin callback if provided
+      if (onLogin && typeof onLogin === 'function') {
+        onLogin();
       }
-    }, 100);
+    } catch (error) {
+      console.error('Demo login error:', error);
+      setError('An unexpected error occurred');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -110,7 +123,6 @@ const Login = ({ onLogin }) => {
                   placeholder="Full Name"
                   value={formData.name}
                   onChange={handleChange}
-                  required={!isLogin}
                 />
               </div>
               <div className="form-group with-icon">
@@ -121,7 +133,6 @@ const Login = ({ onLogin }) => {
                   placeholder="Student ID"
                   value={formData.studentId}
                   onChange={handleChange}
-                  required={!isLogin}
                 />
               </div>
             </>
@@ -135,7 +146,6 @@ const Login = ({ onLogin }) => {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </div>
           
@@ -147,7 +157,6 @@ const Login = ({ onLogin }) => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              required
             />
           </div>
           
@@ -193,7 +202,7 @@ const Login = ({ onLogin }) => {
           
           {isLogin && (
             <div className="demo-hint">
-              <p>Demo credentials: demo@student.edu / password123</p>
+              <p>Any email/password will work for login</p>
             </div>
           )}
         </div>

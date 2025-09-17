@@ -1,7 +1,7 @@
 // src/components/Login.jsx
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/ThemeContext.jsx';
 import { FiSun, FiMoon, FiMail, FiLock, FiUser, FiBook } from 'react-icons/fi';
 import './Login.css';
 

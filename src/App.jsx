@@ -1,21 +1,21 @@
 // src/App.jsx
-import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from './contexts/ThemeContext';
-import { AuthProvider } from './contexts/AuthContext';
-import { CrisisProvider } from './contexts/CrisisContext';
-import { NavigationProvider } from './contexts/NavigationContext';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
-import Resources from './components/Resources';
-import Contact from './components/Contact';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
-import Footer from './components/Footer';
-import Loading from './components/Loading';
-import { useNavigation } from './contexts/NavigationContext';
-import { useAuth } from './contexts/AuthContext';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { CrisisProvider } from "./contexts/CrisisContext";
+import { NavigationProvider } from "./contexts/NavigationContext";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Resources from "./components/Resources";
+import Contact from "./components/Contact";
+import Dashboard from "./components/Dashboard";
+import Login from "./components/Login";
+import Footer from "./components/Footer";
+import Loading from "./components/Loading";
+import { useNavigation } from "./contexts/NavigationContext";
+import { useAuth } from "./contexts/AuthContext";
+import "./App.css";
 
 // Main content router
 const ContentRouter = () => {
@@ -23,22 +23,26 @@ const ContentRouter = () => {
   const { user } = useAuth();
 
   const handleLoginSuccess = () => {
-    navigateTo('dashboard');
+    navigateTo("dashboard");
   };
 
   const renderSection = () => {
     switch (currentSection) {
-      case 'home':
+      case "home":
         return <Home />;
-      case 'about':
+      case "about":
         return <About />;
-      case 'resources':
+      case "resources":
         return <Resources />;
-      case 'contact':
+      case "contact":
         return <Contact />;
-      case 'dashboard':
-        return user ? <Dashboard onLogout={() => navigateTo('home')} /> : <Home />;
-      case 'login':
+      case "dashboard":
+        return user ? (
+          <Dashboard onLogout={() => navigateTo("home")} />
+        ) : (
+          <Home />
+        );
+      case "login":
         return <Login onLogin={handleLoginSuccess} />;
       default:
         return <Home />;
@@ -48,7 +52,7 @@ const ContentRouter = () => {
   return (
     <div className="app-content">
       {renderSection()}
-      {!['dashboard', 'login'].includes(currentSection) && <Footer />}
+      {!["dashboard", "login"].includes(currentSection) && <Footer />}
     </div>
   );
 };
@@ -61,7 +65,7 @@ function App() {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -84,5 +88,4 @@ function App() {
     </ThemeProvider>
   );
 }
-
 export default App;

@@ -1,0 +1,917 @@
+.resources-section {
+  margin: 50px 0 0 0;
+  padding: 100px 0;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.resources-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.resources-category {
+  margin-bottom: 4rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.category-title h3 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.category-icon {
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.tab-btn.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.resource-card {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow);
+}
+
+.resource-thumbnail {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.resource-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover .resource-thumbnail img {
+  transform: scale(1.05);
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.resource-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-overlay svg {
+  color: white;
+}
+
+.duration-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.resource-content {
+  padding: 1.5rem;
+}
+
+.resource-content h4 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.resource-content p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.resource-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.level-badge {
+  background: rgba(78, 115, 223, 0.1);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.play-btn, .read-btn, .listen-btn {
+  padding: 0.5rem 1rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.play-btn:hover, .read-btn:hover, .listen-btn:hover {
+  background: var(--accent-secondary);
+}
+
+/* Articles Grid */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.article-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(78, 115, 223, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.article-category {
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--success);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.read-time {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Podcasts Grid */
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.podcast-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.podcast-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(255, 193, 7, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+.podcast-category {
+  background: rgba(255, 193, 7, 0.1);
+  color: var(--warning);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.episode-title {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.podcast-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Emergency Resources */
+.emergency-resources {
+  background: rgba(220, 53, 69, 0.05);
+  border: 1px solid rgba(220, 53, 69, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin: 4rem 0;
+}
+
+.emergency-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.emergency-icon {
+  color: var(--danger);
+  font-size: 2rem;
+}
+
+.emergency-header h3 {
+  color: var(--danger);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.emergency-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.emergency-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.emergency-item h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.emergency-item p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.emergency-item span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Wellness Tools */
+.wellness-tools {
+  margin-top: 4rem;
+}
+
+.wellness-tools h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(78, 115, 223, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+}
+
+.tool-card h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.tool-card p {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.tool-btn {
+  margin: 20px 0;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.tool-btn:hover {
+  background: var(--accent-secondary);
+}
+
+@media (max-width: 768px) {
+  .resources-section {
+    padding: 80px 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .category-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .resources-grid,
+  .articles-grid,
+  .podcasts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .article-card,
+  .podcast-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .article-icon,
+  .podcast-icon {
+    margin: 0 auto;
+  }
+  
+  .emergency-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .resource-content {
+    padding: 1rem;
+  }
+  
+  .article-card,
+  .podcast-card {
+    padding: 1rem;
+  }
+  
+  .emergency-resources {
+    padding: 1.5rem;
+  }
+  
+  .tool-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Video Modal */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.video-modal {
+  background: var(--bg-primary);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-info {
+  padding: 1.5rem 2rem;
+}
+
+.video-info p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.video-meta {
+  display: flex;
+  gap: 1rem;
+}
+
+.video-meta .duration,
+.video-meta .level {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.video-meta .duration {
+  background: rgba(78, 115, 223, 0.1);
+  color: var(--accent-primary);
+}
+
+.video-meta .level {
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--success);
+}
+
+/* Audio Player Styles */
+.listen-btn.playing {
+  background: var(--danger);
+}
+
+.listen-btn.playing:hover {
+  background: #c82333;
+}
+
+/* Mood Tracker Styles */
+.mood-tracker {
+  margin-top: 1rem;
+}
+
+.mood-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.mood-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.mood-btn:hover {
+  transform: scale(1.1);
+}
+
+.mood-btn.selected {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.mood-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mood-journal {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.mood-journal:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+.mood-history {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.mood-history h5 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.mood-entry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+/* Breathing Exercise Styles */
+.breathing-exercise {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.breathing-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 3px solid var(--border-color);
+}
+
+.breathing-circle.inhale {
+  background: rgba(40, 167, 69, 0.2);
+  border-color: var(--success);
+  transform: scale(1.5);
+}
+
+.breathing-circle.hold {
+  background: rgba(255, 193, 7, 0.2);
+  border-color: var(--warning);
+}
+
+.breathing-circle.exhale {
+  background: rgba(78, 115, 223, 0.2);
+  border-color: var(--accent-primary);
+  transform: scale(1);
+}
+
+.breathing-circle.rest {
+  background: rgba(108, 117, 125, 0.2);
+  border-color: var(--text-secondary);
+}
+
+.breathing-text {
+  text-align: center;
+}
+
+.phase {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.count {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.breathing-controls {
+  margin-bottom: 1rem;
+}
+
+.breathing-guide {
+  background: var(--bg-secondary);
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.breathing-guide p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Journal Prompts Styles */
+.journal-prompts {
+  margin-top: 1rem;
+}
+
+.prompt-list {
+  margin-bottom: 1rem;
+}
+
+.prompt-item {
+  margin-bottom: 1rem;
+}
+
+.prompt-item h5 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.prompt-item textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.prompt-item textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Tool button enhancements */
+.tool-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.tool-btn:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.tool-btn.stop {
+  background: var(--danger);
+}
+
+.tool-btn.stop:hover {
+  background: #c82333;
+}
+
+/* Responsive Design for Tools */
+@media (max-width: 768px) {
+  .mood-scale {
+    gap: 0.5rem;
+  }
+  
+  .mood-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .breathing-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .phase {
+    font-size: 0.9rem;
+  }
+  
+  .count {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-modal {
+    border-radius: 15px;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .video-info {
+    padding: 1rem 1.5rem;
+  }
+  
+  .mood-scale {
+    gap: 0.3rem;
+  }
+  
+  .mood-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .mood-labels {
+    font-size: 0.7rem;
+  }
+  
+  .breathing-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .phase {
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for breathing circle */
+@keyframes breatheIn {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.5); }
+}
+
+@keyframes breatheOut {
+  0% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.breathing-circle {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.breathing-circle.inhale {
+  animation-name: breatheIn;
+}
+
+.breathing-circle.exhale {
+  animation-name: breatheOut;
+}
